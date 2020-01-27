@@ -1,0 +1,26 @@
+.app {
+    height: 100vh;
+    background: rgb(29, 28, 28);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    overflow: hidden;
+}
+
+.app__header {
+    color: #fff;
+}
+
+.app__logo {
+    animation: rotate 10s infinite linear;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
