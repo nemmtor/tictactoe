@@ -1,14 +1,13 @@
-import React from 'react';
-import { reactLogo } from '../../../assets';
+import React, { useState } from 'react';
+import Intro from '../Intro';
 import './App.scss';
 
 function App() {
-    return (
-        <main className="app">
-            <img src={reactLogo} className="app__logo" alt="React logo" />
-            <h1 className="app__header">React new app</h1>
-        </main>
+    const [introFinished, setIntroFinished] = useState(false);
+    const view = introFinished ? null : (
+        <Intro setIntroFinished={setIntroFinished} />
     );
+    return view;
 }
 
 export default App;
