@@ -1,4 +1,5 @@
+@import 'styles/colors.scss';
 .game {
-    color: #00adb5;
+    color: $contrast-color;
     letter-spacing: 6px;
 }
