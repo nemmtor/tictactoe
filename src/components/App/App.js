@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import Intro from '../Intro';
+import { Intro, Game } from 'components';
 import './App.scss';
 
 function App() {
     const [introFinished, setIntroFinished] = useState(false);
-    const view = introFinished ? null : (
+    const view = introFinished ? (
+        <Game />
+    ) : (
         <Intro setIntroFinished={setIntroFinished} />
     );
     return view;

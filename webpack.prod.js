@@ -32,7 +32,7 @@ module.exports = merge(common, {
             new OptimizeCssAssetsWebpackPlugin(),
             new TerserPlugin({ sourceMap: true }),
             new HtmlWebpackPlugin({
-                template: './src/app/index.html',
+                template: './src/index.html',
                 minify: {
                     removeAttributeQuotes: true,
                     collapseWhitespace: true,

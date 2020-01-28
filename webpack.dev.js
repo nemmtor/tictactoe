@@ -21,7 +21,7 @@ module.exports = merge(common, {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './src/app/index.html',
+            template: './src/index.html',
         }),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('development'),

@@ -2,9 +2,14 @@ const path = require('path');
 
 module.exports = {
     entry: {
-        main: path.resolve(__dirname, 'src/app/index.js'),
+        main: path.resolve(__dirname, 'src/index.js'),
     },
     resolve: {
+        alias: {
+            components: path.resolve(__dirname, 'src/components'),
+            utils: path.resolve(__dirname, 'src/utils'),
+            assets: path.resolve(__dirname, 'src/assets'),
+        },
         extensions: ['.js', '.jsx'],
     },
     module: {
