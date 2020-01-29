@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Intro, Game } from 'components';
-import './App.scss';
+import { Global, Theme } from 'styles';
+import { Normalize } from 'styled-normalize';
 
 function App() {
     const [introFinished, setIntroFinished] = useState(false);
@@ -9,7 +10,13 @@ function App() {
     ) : (
         <Intro setIntroFinished={setIntroFinished} />
     );
-    return view;
+    return (
+        <>
+            <Normalize />
+            <Global />
+            <Theme>{view}</Theme>
+        </>
+    );
 }
 
 export default App;

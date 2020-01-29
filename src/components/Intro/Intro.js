@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Typewriter from 'typewriter-effect';
 import { changeStateAfterDelay } from 'utils';
-import './Intro.scss';
 
 const Intro = ({ setIntroFinished }) => {
     useEffect(() => {

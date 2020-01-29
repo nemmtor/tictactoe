@@ -1,8 +1,22 @@
-import React from 'react';
-import './Game.scss';
+import React, { useContext } from 'react';
+import styled, { ThemeContext } from 'styled-components';
+
+const GameWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: ${({ colors }) => colors.contrast};
+    font-size: ${({ fontSizes }) => fontSizes.large};
+`;
 
 const Game = () => {
-    return <div className="game">Game</div>;
+    const { colors, fontSizes } = useContext(ThemeContext);
+    return (
+        <GameWrapper colors={colors} fontSizes={fontSizes}>
+            Hi!
+        </GameWrapper>
+    );
 };
 
 export default Game;
