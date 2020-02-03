@@ -9,14 +9,16 @@ const theme = {
         text: '#eeeeee',
     },
     fontSizes: {
-        small: '1em',
-        medium: '2em',
-        large: '3em',
+        small: '1rem',
+        medium: '2rem',
+        large: '3rem',
     },
 };
 
 const Theme = ({ children }) => (
     <ThemeProvider theme={theme}>{children}</ThemeProvider>
 );
+
+// TODO: add props validation for children props
 
 export default Theme;
