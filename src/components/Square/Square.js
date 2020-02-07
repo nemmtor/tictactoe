@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { PlayersContext } from 'components';
+import { PlayersContext } from 'context';
 import { getNextPlayer } from 'utils';
 
 const StyledSquare = styled.div`
@@ -15,7 +15,7 @@ const StyledSquare = styled.div`
 `;
 
 const Square = ({ squareValue, changeBoard, index }) => {
-    const { currentPlayer, setCurrentPlayer, players } = useContext(
+    const { currentPlayer, setCurrentPlayerId, players } = useContext(
         PlayersContext,
     );
     const handleClick = () => {
@@ -24,16 +24,20 @@ const Square = ({ squareValue, changeBoard, index }) => {
         }
         const newValue = currentPlayer.mark;
         const nextPlayer = getNextPlayer(currentPlayer.id, players);
-        setCurrentPlayer(players[nextPlayer.id]);
+        setCurrentPlayerId(players[nextPlayer.id]);
         changeBoard(index, newValue);
     };
     return <StyledSquare onClick={handleClick}>{squareValue}</StyledSquare>;
 };
 
 Square.propTypes = {
-    squareValue: PropTypes.string.isRequired,
+    squareValue: PropTypes.string,
     changeBoard: PropTypes.func.isRequired,
     index: PropTypes.number.isRequired,
+};
+
+Square.defaultProps = {
+    squareValue: '',
 };
 
 export default Square;

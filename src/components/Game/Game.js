@@ -1,6 +1,7 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import styled, { ThemeContext } from 'styled-components';
-import { Board, PlayersContext } from 'components';
+import { Board } from 'components';
+import { PlayersProvider } from 'context';
 
 const GameWrapper = styled.div`
     color: ${({ colors }) => colors.contrast};
@@ -13,19 +14,12 @@ const GameWrapper = styled.div`
 `;
 
 const Game = () => {
-    const [players, setPlayers] = useState([
-        { id: 0, name: 'Kacper', mark: 'X' },
-        { id: 1, name: 'Filip', mark: 'O' },
-    ]);
-    const [currentPlayer, setCurrentPlayer] = useState(players[0]);
     const { colors, fontSizes } = useContext(ThemeContext);
     return (
         <GameWrapper colors={colors} fontSizes={fontSizes}>
-            <PlayersContext.Provider
-                value={{ players, currentPlayer, setCurrentPlayer }}
-            >
+            <PlayersProvider>
                 <Board />
-            </PlayersContext.Provider>
+            </PlayersProvider>
         </GameWrapper>
     );
 };
