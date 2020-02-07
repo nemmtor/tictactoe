@@ -1,9 +1,6 @@
 const path = require('path');
-const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 
-const smp = new SpeedMeasurePlugin();
-
-module.exports = smp.wrap({
+module.exports = {
     entry: {
         main: path.resolve(__dirname, 'src/index.js'),
     },
@@ -41,4 +38,4 @@ module.exports = smp.wrap({
             },
         ],
     },
-});
+};
