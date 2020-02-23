@@ -8,6 +8,7 @@ const Intro = ({ setIntroFinished }) => {
         changeStateAfterDelay(setIntroFinished, true, 6000);
     });
     return (
+        // Classnames of wrapper and cursor has to be defined in global css
         <Typewriter
             options={{
                 wrapperClassName: 'writer__text',

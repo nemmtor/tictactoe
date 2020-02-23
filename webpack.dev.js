@@ -10,6 +10,7 @@ const smp = new SpeedMeasurePlugin();
 module.exports = smp.wrap(
     merge(common, {
         mode: 'development',
+        devtool: 'source-map',
         // devtool: 'eval',
         output: {
             filename: '[name].bundle.js',

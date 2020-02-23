@@ -1,20 +1,25 @@
-import React, { useState } from 'react';
-import { Intro, Game } from 'components';
+import React, { useState, useEffect } from 'react';
+import { Intro, Game, ErrorBoundary } from 'components';
 import { Global, Theme } from 'styles';
 import { Normalize } from 'styled-normalize';
 
 function App() {
     const [introFinished, setIntroFinished] = useState(false);
-    const view = introFinished ? (
-        <Game />
-    ) : (
-        <Intro setIntroFinished={setIntroFinished} />
-    );
+    // Uncomment to skip intro:
+    // useEffect(() => {
+    //     setIntroFinished(true);
+    // }, []);
     return (
         <>
             <Normalize />
             <Global />
-            <Theme>{view}</Theme>
+            <ErrorBoundary>
+                <Theme>
+                    {(introFinished && <Game />) || (
+                        <Intro setIntroFinished={setIntroFinished} />
+                    )}
+                </Theme>
+            </ErrorBoundary>
         </>
     );
 }

@@ -9,24 +9,34 @@ export class PlayersProvider extends Component {
         this.state = {
             players: [
                 { id: 0, name: 'Kacper', mark: 'X' },
-                { id: 1, name: 'Filip', mark: 'O' },
+                { id: 1, name: 'Karolina', mark: 'O' },
             ],
             currentPlayerId: 0,
         };
 
-        this.setCurrentPlayerId = this.setCurrentPlayerId.bind(this);
+        this.changeCurrentPlayer = this.changeCurrentPlayer.bind(this);
+        this.setPlayers = this.setPlayers.bind(this);
     }
 
-    setCurrentPlayerId() {
+    setPlayers(player1Name, player2Name) {
+        this.setState(prevState => {
+            const { players } = prevState;
+            players[0].name = player1Name;
+            players[1].name = player2Name;
+            return players;
+        });
+    }
+
+    changeCurrentPlayer() {
         this.setState(prevState => ({
             currentPlayerId: prevState.currentPlayerId ? 0 : 1,
         }));
     }
 
     render() {
-        const { setCurrentPlayerId } = this;
+        const { changeCurrentPlayer, setPlayers } = this;
         const { players, currentPlayerId } = this.state;
-        const currentPlayer = players[currentPlayerId];
+        const currentPlayer = players[parseInt(currentPlayerId, 10)];
         const { children } = this.props;
 
         return (
@@ -34,7 +44,8 @@ export class PlayersProvider extends Component {
                 value={{
                     players,
                     currentPlayer,
-                    setCurrentPlayerId,
+                    changeCurrentPlayer,
+                    setPlayers,
                 }}
             >
                 {children}

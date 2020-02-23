@@ -1,12 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import styled, { ThemeContext } from 'styled-components';
-import { Board } from 'components';
+import { Board, CurrentPlayerInfo, PlayersRegistration } from 'components';
 import { PlayersProvider } from 'context';
 
-const GameWrapper = styled.div`
+const GameContainerStyled = styled.main`
     color: ${({ colors }) => colors.contrast};
     font-size: ${({ fontSizes }) => fontSizes.large};
-    width: 80%;
+    width: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,13 +16,25 @@ const GameWrapper = styled.div`
 
 const Game = () => {
     const { colors, fontSizes } = useContext(ThemeContext);
+    const [playersRegistered, setPlayersRegistered] = useState(false);
     return (
-        <GameWrapper colors={colors} fontSizes={fontSizes}>
+        <GameContainerStyled colors={colors} fontSizes={fontSizes}>
             <PlayersProvider>
-                <Board />
+                {(playersRegistered && (
+                    <>
+                        <CurrentPlayerInfo />
+                        <Board />
+                    </>
+                )) || (
+                    <PlayersRegistration
+                        setPlayersRegistered={setPlayersRegistered}
+                    />
+                )}
             </PlayersProvider>
-        </GameWrapper>
+        </GameContainerStyled>
     );
 };
+
+GameContainerStyled.displayName = 'Game Container';
 
 export default Game;

@@ -2,19 +2,20 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Square } from 'components';
 
-const StyledBoard = styled.div`
-    width: 9em;
-    height: 9em;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+const BoardStyled = styled.div`
+    width: 20rem;
+    height: 20rem;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(3, minmax(5rem, 1fr));
+    grid-template-rows: repeat(3, minmax(5rem, 1fr));
 `;
 
 const Board = () => {
     const [board, setBoard] = useState(new Array(9).fill(''));
     const changeBoard = (i, newVal) => {
         const newBoard = [...board];
-        newBoard[i] = newVal;
+        newBoard[parseInt(i, 10)] = newVal;
         setBoard(newBoard);
     };
     const squares = board.map((squareValue, i) => (
@@ -26,7 +27,7 @@ const Board = () => {
             key={i}
         />
     ));
-    return <StyledBoard>{squares}</StyledBoard>;
+    return <BoardStyled>{squares}</BoardStyled>;
 };
 
 export default Board;

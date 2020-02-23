@@ -4,8 +4,13 @@
         "jest": true,
         "es6": true
     },
-    "extends": ["airbnb", "prettier", "prettier/react"],
-    "plugins": ["prettier", "react-hooks"],
+    "extends": [
+        "airbnb",
+        "prettier",
+        "prettier/react",
+        "plugin:security/recommended"
+    ],
+    "plugins": ["prettier", "react-hooks", "security"],
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"

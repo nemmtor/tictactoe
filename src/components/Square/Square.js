@@ -5,8 +5,6 @@ import { PlayersContext } from 'context';
 import { getNextPlayer } from 'utils';
 
 const StyledSquare = styled.div`
-    width: 3em;
-    height: 3em;
     border: 1px solid white;
     cursor: pointer;
     display: flex;
@@ -15,7 +13,7 @@ const StyledSquare = styled.div`
 `;
 
 const Square = ({ squareValue, changeBoard, index }) => {
-    const { currentPlayer, setCurrentPlayerId, players } = useContext(
+    const { currentPlayer, changeCurrentPlayer, players } = useContext(
         PlayersContext,
     );
     const handleClick = () => {
@@ -24,7 +22,7 @@ const Square = ({ squareValue, changeBoard, index }) => {
         }
         const newValue = currentPlayer.mark;
         const nextPlayer = getNextPlayer(currentPlayer.id, players);
-        setCurrentPlayerId(players[nextPlayer.id]);
+        changeCurrentPlayer(players[nextPlayer.id]);
         changeBoard(index, newValue);
     };
     return <StyledSquare onClick={handleClick}>{squareValue}</StyledSquare>;
