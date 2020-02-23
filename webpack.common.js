@@ -36,6 +36,10 @@ module.exports = {
                     'webp-loader?{quality: 80}',
                 ],
             },
+            {
+                test: /\.ico$/i,
+                loader: 'file-loader?name=[name].[ext]',
+            },
         ],
     },
 };
