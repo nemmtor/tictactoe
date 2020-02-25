@@ -2,6 +2,5 @@ node_module
 whatchanged
 whatChanged
 node_modules
-dist
 # Local Netlify folder
 .netlify
