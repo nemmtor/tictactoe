@@ -3,7 +3,7 @@ import styled, { ThemeContext } from 'styled-components';
 import {
     BoardContainer,
     CurrentPlayerInfo,
-    PlayersRegistration,
+    RegisterContainer,
 } from 'components';
 import { PlayersProvider } from 'context';
 
@@ -26,7 +26,7 @@ const Game = () => {
             <PlayersProvider>
                 {playersRegistered && <BoardContainer />}
                 {!playersRegistered && (
-                    <PlayersRegistration
+                    <RegisterContainer
                         setPlayersRegistered={setPlayersRegistered}
                     />
                 )}

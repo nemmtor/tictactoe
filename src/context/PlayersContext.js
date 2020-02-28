@@ -8,8 +8,8 @@ export class PlayersProvider extends Component {
         super(props);
         this.state = {
             players: [
-                { id: 0, name: 'Kacper', mark: 'X' },
-                { id: 1, name: 'Karolina', mark: 'O' },
+                { id: 0, name: '', mark: 'X' },
+                { id: 1, name: '', mark: 'O' },
             ],
             currentPlayerId: 0,
         };

@@ -47,12 +47,8 @@ export default function BoardContainer({ children }) {
             {!gameFinished && (
                 <>
                     <CurrentPlayerInfo />
-                    <Board
-                        board={board}
-                        changeBoard={changeBoard}
-                        squares={squares}
-                    >
-                        {children}
+                    <Board board={board} changeBoard={changeBoard}>
+                        {squares}
                     </Board>
                 </>
             )}
@@ -60,7 +56,3 @@ export default function BoardContainer({ children }) {
         </>
     );
 }
-
-BoardContainer.propTypes = {
-    children: PropTypes.node.isRequired,
-};

@@ -12,9 +12,9 @@ const BoardStyled = styled.div`
 `;
 
 const Board = props => {
-    const { board, changeBoard, squares } = props;
+    const { children } = props;
 
-    return <BoardStyled>{squares}</BoardStyled>;
+    return <BoardStyled>{children}</BoardStyled>;
 };
 
 export default Board;

@@ -6,4 +6,4 @@ export { default as BoardContainer } from './BoardContainer';
 export { default as Square } from './Square';
 export { default as ErrorBoundary } from './ErrorBoundary';
 export { default as CurrentPlayerInfo } from './CurrentPlayerInfo';
-export { default as PlayersRegistration } from './PlayersRegistration';
+export { default as RegisterContainer } from './Register';
