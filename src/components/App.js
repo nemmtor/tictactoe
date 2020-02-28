@@ -6,9 +6,9 @@ import { Normalize } from 'styled-normalize';
 function App() {
     const [introFinished, setIntroFinished] = useState(false);
     // Uncomment to skip intro:
-    useEffect(() => {
-        setIntroFinished(true);
-    }, []);
+    // useEffect(() => {
+    //     setIntroFinished(true);
+    // }, []);
     return (
         <>
             <Normalize />
