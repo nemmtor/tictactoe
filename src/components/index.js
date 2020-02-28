@@ -1,5 +1,6 @@
 export { default as App } from './App';
 export { default as Game } from './Game';
+export { default as Footer } from './Footer';
 export { default as Intro } from './Intro';
 export { default as Board } from './Board';
 export { default as BoardContainer } from './BoardContainer';

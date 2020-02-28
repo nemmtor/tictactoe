@@ -1,10 +1,6 @@
 import React, { useContext, useState } from 'react';
 import styled, { ThemeContext } from 'styled-components';
-import {
-    BoardContainer,
-    CurrentPlayerInfo,
-    RegisterContainer,
-} from 'components';
+import { BoardContainer, RegisterContainer } from 'components';
 import { PlayersProvider } from 'context';
 
 const GameContainerStyled = styled.main`

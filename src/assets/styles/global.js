@@ -1,8 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
+import { tictactoe } from 'images';
 
 export default createGlobalStyle`
     :root {
-        font-family: sans-serif;
+        font-family: 'Montserrat', sans-serif;
         font-size: 16px;
     }
 
@@ -16,31 +17,43 @@ export default createGlobalStyle`
 
     #root {
         height: 100vh;
-        background: rgb(29, 28, 28);
+        background: #EEE0CB url(${tictactoe});
+        background-size: 150px;
+        background-repeat: no-repeat;
+        background-position: 10% 20%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         overflow: hidden;
+
     }
 
+    .Typewriter {
+        
+        position: absolute;
+        top: 100%;
+        right: 0;
+    }
     .writer__text,
     .writer__cursor {
-        color: #eee;
-        font-size: 3rem;
+        color: #333;
+        font-size: 1.5rem;
     }
 
     .writer__cursor {
-        animation: shrink-grow 0.5s ease-out infinite alternate;
+        animation: shrink-grow .5s linear infinite alternate;
         display: inline-block;
+        position: relative;
+        transform: scaleX(2);
     }
 
     @keyframes shrink-grow {
         from {
-            transform: scaleY(1);
+            opacity: 1;
         }
         to {
-            transform: scaleY(0.1);
+            opacity: 0;
         }
     }
 

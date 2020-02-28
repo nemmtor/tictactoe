@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { Square } from 'components';
+import PropTypes from 'prop-types';
 
 const BoardStyled = styled.div`
     width: 20rem;
@@ -15,6 +15,10 @@ const Board = props => {
     const { children } = props;
 
     return <BoardStyled>{children}</BoardStyled>;
+};
+
+Board.propTypes = {
+    children: PropTypes.node.isRequired,
 };
 
 export default Board;
