@@ -17,6 +17,7 @@ export default createGlobalStyle`
 
     #root {
         height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
         background: #EEE0CB;
         display: flex;
         flex-direction: column;
