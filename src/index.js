@@ -9,7 +9,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 // Set 100vh for mobiles
-const vh = window.innerHeight * 0.1;
+const vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty('--vh', `${vh}px`);
 
 ReactDOM.render(<App />, document.querySelector('#root'));
