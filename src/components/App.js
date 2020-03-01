@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import { Intro, Game, ErrorBoundary, Footer } from 'components';
+import { ErrorBoundary, Landing, Game, Footer } from 'components';
 import { Global, Theme } from 'styles';
 import { Normalize } from 'styled-normalize';
 
 function App() {
-    const [introFinished, setIntroFinished] = useState(false);
+    const [gameStarted, setGameStarted] = useState(false);
     return (
         <>
             <Normalize />
             <Global />
             <ErrorBoundary>
                 <Theme>
-                    {introFinished && <Game />}
-                    {!introFinished && (
-                        <Intro setIntroFinished={setIntroFinished} />
+                    {gameStarted && <Game />}
+                    {!gameStarted && (
+                        <Landing setGameStarted={setGameStarted} />
                     )}
                     <Footer />
                 </Theme>

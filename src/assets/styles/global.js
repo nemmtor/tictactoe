@@ -17,15 +17,27 @@ export default createGlobalStyle`
 
     #root {
         height: 100vh;
-        background: #EEE0CB url(${tictactoe});
-        background-size: 150px;
-        background-repeat: no-repeat;
-        background-position: 10% 20%;
+        background: #EEE0CB;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         overflow: hidden;
+
+        &::after {
+            content: '';
+            opacity: .3;
+            top: -3rem;
+            left: -3rem;
+            width: 15rem;
+            height: 15rem;
+            transform: rotate(45deg);
+            position: absolute;
+            background: url(${tictactoe});
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
 
     }
 

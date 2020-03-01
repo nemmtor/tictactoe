@@ -5,7 +5,7 @@ import { PlayersProvider } from 'context';
 
 const GameContainerStyled = styled.main`
     color: ${({ colors }) => colors.contrast};
-    font-size: ${({ fontSizes }) => fontSizes.large};
+    font-size: 3rem;
     width: 100%;
     height: 100vh;
     display: flex;
@@ -15,10 +15,10 @@ const GameContainerStyled = styled.main`
 `;
 
 const Game = () => {
-    const { colors, fontSizes } = useContext(ThemeContext);
+    const { colors } = useContext(ThemeContext);
     const [playersRegistered, setPlayersRegistered] = useState(false);
     return (
-        <GameContainerStyled colors={colors} fontSizes={fontSizes}>
+        <GameContainerStyled colors={colors}>
             <PlayersProvider>
                 {playersRegistered && <BoardContainer />}
                 {!playersRegistered && (
