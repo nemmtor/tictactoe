@@ -19,6 +19,7 @@ export default createGlobalStyle`
         height: 100vh;
         height: calc(var(--vh, 1vh) * 100);
         background: #EEE0CB;
+        background: linear-gradient(45deg, rgba(238, 224, 203, 1), rgba(199, 152, 82, 1));
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -38,36 +39,24 @@ export default createGlobalStyle`
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center center;
-        }
+            
+            @media(min-width: 768px){
+                top: -5rem;
+                left: -5rem;
+                width: 30rem;
+                height: 30rem;
+            }
 
-    }
-
-    .Typewriter {
-        
-        position: absolute;
-        top: 100%;
-        right: 0;
-    }
-    .writer__text,
-    .writer__cursor {
-        color: #333;
-        font-size: 1.5rem;
-    }
-
-    .writer__cursor {
-        animation: shrink-grow .5s linear infinite alternate;
-        display: inline-block;
-        position: relative;
-        transform: scaleX(2);
-    }
-
-    @keyframes shrink-grow {
-        from {
-            opacity: 1;
-        }
-        to {
-            opacity: 0;
         }
     }
 
+    @keyframes fadeIn {
+        from { opacity: 0;}
+        to {opacity: 1;}
+    }
+
+    @keyframes slideFromRight {
+        from { transform: translateX(10px);}
+        to { transform: translateX(0px);}
+    }
 `;

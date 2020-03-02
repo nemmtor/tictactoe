@@ -1,7 +1,13 @@
 import React, { useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
-import { HeaderStyled, SkipStyled, ButtonStyled, KbdStyled } from './styles';
+import {
+    LandingStyled,
+    HeaderStyled,
+    SkipStyled,
+    ButtonStyled,
+    KbdStyled,
+} from './styles';
 
 const Landing = ({ setGameStarted }) => {
     const { colors, queries } = useContext(ThemeContext);
@@ -16,7 +22,7 @@ const Landing = ({ setGameStarted }) => {
         });
     });
     return (
-        <>
+        <LandingStyled queries={queries}>
             <HeaderStyled colors={colors} queries={queries}>
                 Welcome to tic-tac-toe
                 <span className="enjoy">Enjoy your time.</span>
@@ -28,7 +34,7 @@ const Landing = ({ setGameStarted }) => {
                 </ButtonStyled>{' '}
                 or press <KbdStyled>space</KbdStyled> to start.
             </SkipStyled>
-        </>
+        </LandingStyled>
     );
 };
 

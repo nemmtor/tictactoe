@@ -1,32 +1,44 @@
 import styled, { keyframes } from 'styled-components';
 
+export const LandingStyled = styled.main`
+    padding: 1em;
+    font-size: 1rem;
+    @media ${({ queries }) => queries.mobileL} {
+        font-size: 1.2rem;
+    }
+    @media ${({ queries }) => queries.tablet} {
+        font-size: 2rem;
+    }
+    @media ${({ queries }) => queries.laptop} {
+        font-size: 2.2rem;
+    }
+`;
+
 export const HeaderStyled = styled.h1`
     font-family: 'Shadows Into Light', sans-serif;
-    font-size: 3rem;
-    padding: 1rem;
+    font-size: 3em;
     text-align: center;
     text-transform: uppercase;
     color: ${({ colors }) => colors.main};
     position: relative;
+    animation: fadeIn 0.5s ease-in-out forwards;
 
     span {
         position: absolute;
-        bottom: 0;
-        right: 3em;
+        bottom: -1em;
+        right: 0em;
         font-size: 0.3em;
         opacity: 0.7;
     }
 `;
 
-const bounceKeyFrames = keyframes`
-0% {transform: translateY(2px)}
-100% {transform: translateY(-2px)}`;
-
 export const SkipStyled = styled.p`
+    opacity: 0;
     text-align: center;
-    margin-top: 2rem;
-    font-size: 2rem;
-    animation: ${bounceKeyFrames} 1s ease-in-out infinite alternate;
+    margin-top: 60px;
+    font-size: 2em;
+    animation: fadeIn 0.5s 0.5s ease-in-out forwards,
+        slideFromRight 1s 0.5s ease-in-out forwards;
 `;
 export const ButtonStyled = styled.button`
     border: none;
