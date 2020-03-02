@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { tictactoe } from 'images';
+import { fadeInLow } from 'animations';
 
 export default createGlobalStyle`
     :root {
@@ -18,7 +19,6 @@ export default createGlobalStyle`
     #root {
         height: 100vh;
         height: calc(var(--vh, 1vh) * 100);
-        background: #EEE0CB;
         background: linear-gradient(45deg, rgba(238, 224, 203, 1), rgba(199, 152, 82, 1));
         display: flex;
         flex-direction: column;
@@ -40,7 +40,7 @@ export default createGlobalStyle`
             background-size: cover;
             background-position: center center;
             opacity: 0;
-            animation: fadeInLow 1s 2s forwards;
+            animation: ${fadeInLow} 1s 2s forwards;
             
             @media(min-width: 768px){
                 top: -5rem;

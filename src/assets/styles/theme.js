@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const theme = {
     colors: {
-        main: '#333',
+        main: '#222',
         contrast: '#EEE0CB',
         accent1: '#839788',
         accent2: '#BFD7EA',
