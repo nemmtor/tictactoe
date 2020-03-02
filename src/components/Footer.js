@@ -15,7 +15,7 @@ const FooterStyled = styled.footer`
         font-weight: bold;
         text-decoration: none;
         position: relative;
-        opacity: 0.7;
+        opacity: 0.9;
         transition: opacity 0.2s ease-out;
         will-change: transform;
         &::after {

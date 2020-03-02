@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Board, CurrentPlayerInfo, Square } from 'components';
 import { gameIsFinished, checkWinner } from 'utils';
 import { PlayersContext } from 'context';
-import PropTypes from 'prop-types';
+import { CurrentPlayerInfo } from 'components';
+import Board from './Board';
+import Square from './Square';
 
-export default function BoardContainer({ children }) {
+const BoardContainer = () => {
     const [board, setBoard] = useState(new Array(9).fill(''));
     const [gameFinished, setGameFinished] = useState(false);
     const [winner, setWinner] = useState(null);
@@ -55,4 +56,6 @@ export default function BoardContainer({ children }) {
             {gameFinished && <h1>Winner: {winner || 'no winner.'}</h1>}
         </>
     );
-}
+};
+
+export default BoardContainer;

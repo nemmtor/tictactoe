@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { ErrorBoundary, Landing, Game, Footer } from 'components';
+import { ErrorBoundary, Landing, Footer } from 'components';
 import { Global, Theme } from 'styles';
 import { Normalize } from 'styled-normalize';
+import Game from './Game';
 
 function App() {
     const [gameStarted, setGameStarted] = useState(false);

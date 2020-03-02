@@ -31,32 +31,25 @@ export default createGlobalStyle`
             opacity: .3;
             top: -3rem;
             left: -3rem;
-            width: 15rem;
-            height: 15rem;
+            width: 10rem;
+            height: 10rem;
             transform: rotate(45deg);
             position: absolute;
             background: url(${tictactoe});
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center center;
+            opacity: 0;
+            animation: fadeInLow 1s 2s forwards;
             
             @media(min-width: 768px){
                 top: -5rem;
                 left: -5rem;
-                width: 30rem;
-                height: 30rem;
+                width: 20rem;
+                height: 20rem;
             }
 
         }
     }
-
-    @keyframes fadeIn {
-        from { opacity: 0;}
-        to {opacity: 1;}
-    }
-
-    @keyframes slideFromRight {
-        from { transform: translateX(10px);}
-        to { transform: translateX(0px);}
-    }
+    
 `;

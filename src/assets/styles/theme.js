@@ -16,6 +16,7 @@ const theme = {
         mobileL: '(min-width: 425px)',
         tablet: '(min-width: 768px)',
         laptop: '(min-width: 1024px)',
+        laptopL: '(min-width: 1440px)',
     },
 };
 
@@ -26,7 +27,5 @@ const Theme = ({ children }) => (
 Theme.propTypes = {
     children: PropTypes.node.isRequired,
 };
-
-// TODO: add props validation for children props
 
 export default Theme;

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const InputStyled = styled.input`
     width: 15rem;
@@ -10,20 +11,22 @@ const InputStyled = styled.input`
     color: white;
 `;
 
-export default function PlayerInput({
-    name,
-    onChange,
-    placeHolder,
-    value,
-    dataIndex,
-}) {
+const PlayerInput = ({ name, onChange, value, dataIndex }) => {
     return (
         <InputStyled
+            placeholder="Enter player name..."
             value={value}
             name={name}
-            placeholder={placeHolder}
             onChange={onChange}
             data-index={dataIndex}
         />
     );
-}
+};
+
+PlayerInput.propTypes = {
+    name: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
+    value: PropTypes.string.isRequired,
+};
+
+export default PlayerInput;

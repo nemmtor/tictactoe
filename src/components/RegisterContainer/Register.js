@@ -7,18 +7,16 @@ export default function Register({ handleSubmit, handleChange, playersNames }) {
     return (
         <Form onSubmit={handleSubmit}>
             <PlayerInput
-                dataIndex={0}
                 name="Player 1"
+                dataIndex={0}
                 value={playersNames[0]}
                 onChange={handleChange}
-                placeHolder="Player 1"
             />
             <PlayerInput
-                dataIndex={1}
                 name="Player 2"
+                dataIndex={1}
                 value={playersNames[1]}
                 onChange={handleChange}
-                placeHolder="Player 2"
             />
             <Submit />
         </Form>

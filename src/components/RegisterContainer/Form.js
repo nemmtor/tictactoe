@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const FormStyled = styled.form`
     width: 100%;
@@ -11,10 +12,17 @@ const FormStyled = styled.form`
     padding: 0;
 `;
 
-export default function Form({ children, onSubmit }) {
+const Form = ({ children, onSubmit }) => {
     return (
         <FormStyled onSubmit={onSubmit} novalidate>
             {children}
         </FormStyled>
     );
-}
+};
+
+Form.propTypes = {
+    children: PropTypes.node.isRequired,
+    onSubmit: PropTypes.func.isRequired,
+};
+
+export default Form;

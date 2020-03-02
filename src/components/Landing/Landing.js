@@ -1,39 +1,46 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { ThemeContext } from 'styled-components';
-import {
-    LandingStyled,
-    HeaderStyled,
-    SkipStyled,
-    ButtonStyled,
-    KbdStyled,
-} from './styles';
+import styled, { ThemeContext } from 'styled-components';
+import ButtonLanding from './ButtonLanding';
+import HeaderLanding from './HeaderLanding';
+
+const LandingStyled = styled.main`
+    padding: 1em;
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media ${({ queries }) => queries.mobileM} {
+        font-size: 1rem;
+    }
+    @media ${({ queries }) => queries.mobileL} {
+        font-size: 1.2rem;
+    }
+    @media ${({ queries }) => queries.tablet} {
+        font-size: 1.5rem;
+    }
+    @media ${({ queries }) => queries.laptop} {
+        font-size: 1.6rem;
+    }
+    @media ${({ queries }) => queries.laptopL} {
+        font-size: 1.9rem;
+    }
+`;
 
 const Landing = ({ setGameStarted }) => {
     const { colors, queries } = useContext(ThemeContext);
     const handleClick = () => {
         setGameStarted(true);
     };
-    useEffect(() => {
-        document.addEventListener('keydown', e => {
-            if (e.keyCode === 32) {
-                setGameStarted(true);
-            }
-        });
-    });
     return (
         <LandingStyled queries={queries}>
-            <HeaderStyled colors={colors} queries={queries}>
-                Welcome to tic-tac-toe
-                <span className="enjoy">Enjoy your time.</span>
-            </HeaderStyled>
-
-            <SkipStyled>
-                <ButtonStyled colors={colors} onClick={handleClick}>
-                    Click here
-                </ButtonStyled>{' '}
-                or press <KbdStyled>space</KbdStyled> to start.
-            </SkipStyled>
+            <HeaderLanding colors={colors} />
+            <ButtonLanding
+                colors={colors}
+                queries={queries}
+                handleClick={handleClick}
+            />
         </LandingStyled>
     );
 };
