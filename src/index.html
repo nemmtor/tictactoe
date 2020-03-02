@@ -6,16 +6,25 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <meta name="description" content="Tic tac toe game made in React.js" />
         <title>Tic Tac Toe - best game of 2020</title>
-        <link
-            href="https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap"
-            rel="stylesheet"
-        />
-        <link
-            href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
-            rel="stylesheet"
-        />
     </head>
     <body>
         <div id="root"></div>
+        <script type="text/javascript">
+            WebFontConfig = {
+                google: {
+                    families: ['Shadows+Into+Light:400', 'Montserrat:400,600'],
+                },
+            };
+
+            (function() {
+                var wf = document.createElement('script');
+                wf.src =
+                    'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+                wf.type = 'text/javascript';
+                wf.async = 'true';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(wf, s);
+            })();
+        </script>
     </body>
 </html>
