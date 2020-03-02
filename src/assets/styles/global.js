@@ -39,8 +39,8 @@ export default createGlobalStyle`
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center center;
-            opacity: 0;
-            animation: ${fadeInLow} 1s 2s forwards;
+            opacity: .6;
+            /* animation: ${fadeInLow} .5s 1s forwards; */
             
             @media(min-width: 768px){
                 top: -5rem;

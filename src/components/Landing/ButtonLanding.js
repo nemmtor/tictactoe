@@ -16,8 +16,8 @@ const ButtonStyled = styled.button`
     opacity: 0;
     transform: translateY(5px);
     transition: filter 0.2s ease-out;
-    animation: ${bounce} 0.7s 1.5s linear infinite alternate,
-        ${fadeIn} 0.5s 1s ease-in forwards;
+    animation: ${bounce} 1s 1s linear infinite alternate,
+        ${fadeIn} 0.5s 0.5s ease-in forwards;
     will-change: transform, opacity, filter;
 
     &:hover {

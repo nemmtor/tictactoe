@@ -12,7 +12,7 @@ const HeaderStyled = styled.h1`
     color: ${({ colors }) => colors.main};
     position: relative;
     opacity: 0;
-    animation: ${fadeIn} 1s 0.5s ease-in-out forwards;
+    animation: ${fadeIn} 1s ease-in-out forwards;
     will-change: opacity;
 
     span {
