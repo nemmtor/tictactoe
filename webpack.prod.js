@@ -41,6 +41,7 @@ module.exports = smp.wrap(
                         removeAttributeQuotes: true,
                         collapseWhitespace: true,
                         removeComments: true,
+                        removeScriptTypeAttributes: true,
                     },
                 }),
             ],
