@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { favicon } from 'images';
 import App from './components/App';
+import './assets/fonts/Audiowide-Regular.ttf';
+import './assets/fonts/Ubuntu-Regular.ttf';
 
 if (process.env.NODE_ENV !== 'production') {
     const whyDidYouRender = require('@welldone-software/why-did-you-render');

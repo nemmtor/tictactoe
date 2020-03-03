@@ -3,8 +3,20 @@ import { tictactoe } from 'images';
 import { fadeInLow } from 'animations';
 
 export default createGlobalStyle`
+    @font-face {
+        font-family: 'Audiowide';
+        src: url("./fonts/Audiowide-Regular.ttf") format("truetype");
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Ubuntu';
+        src: url("./fonts/Ubuntu-Regular.ttf") format("truetype");
+        font-display: swap;
+    }
+
     :root {
-        font-family: 'Montserrat', sans-serif;
+        font-family: 'Ubuntu', sans-serif;
         font-size: 16px;
     }
 

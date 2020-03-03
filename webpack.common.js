@@ -11,6 +11,7 @@ module.exports = {
             context: path.resolve(__dirname, 'src/context'),
             images: path.resolve(__dirname, 'src/assets/images'),
             styles: path.resolve(__dirname, 'src/assets/styles'),
+            fonts: path.resolve(__dirname, 'src/assets/fonts'),
             animations: path.resolve(
                 __dirname,
                 'src/assets/styles/animations.js',
@@ -43,6 +44,10 @@ module.exports = {
             {
                 test: /\.ico$/i,
                 loader: 'file-loader?name=[name].[ext]',
+            },
+            {
+                test: /\.ttf$/i,
+                loader: 'file-loader?name=[name].[ext]&outputPath=fonts/',
             },
         ],
     },

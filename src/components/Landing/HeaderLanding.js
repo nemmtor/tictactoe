@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { fadeIn } from 'animations';
 
 const HeaderStyled = styled.h1`
-    font-family: 'Shadows Into Light', sans-serif;
+    font-family: 'Audiowide', sans-serif;
     font-size: 4em;
     letter-spacing: 0.2em;
     text-align: center;
