@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import styled, { ThemeContext } from 'styled-components';
+import { Transition, CSSTransition } from 'react-transition-group';
 
 const FooterStyled = styled.footer`
     background: ${({ colors }) => colors.main};
@@ -9,6 +10,15 @@ const FooterStyled = styled.footer`
     position: absolute;
     bottom: 0;
     letter-spacing: 1px;
+
+    &.roll-appear {
+        opacity: 0;
+    }
+
+    &.roll-appear-done {
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out;
+    }
 
     a {
         color: ${({ colors }) => colors.accent3};
@@ -43,11 +53,13 @@ const FooterStyled = styled.footer`
 export default function Footer() {
     const { colors } = useContext(ThemeContext);
     return (
-        <FooterStyled colors={colors}>
-            &copy; Designed and created by{' '}
-            <a href="https://github.com/nemmtor" target="blank">
-                Kacper Witas
-            </a>
-        </FooterStyled>
+        <CSSTransition in classNames="roll" appear>
+            <FooterStyled colors={colors}>
+                &copy; Designed and created by{' '}
+                <a href="https://github.com/nemmtor" target="blank">
+                    Kacper Witas
+                </a>
+            </FooterStyled>
+        </CSSTransition>
     );
 }
