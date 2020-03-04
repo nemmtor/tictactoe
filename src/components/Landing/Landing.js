@@ -4,7 +4,7 @@ import styled, { ThemeContext } from 'styled-components';
 import ButtonLanding from './ButtonLanding';
 import HeaderLanding from './HeaderLanding';
 
-const LandingStyled = styled.main`
+const LandingStyled = styled.section`
     padding: 1em;
     font-size: 0.8rem;
     display: flex;
