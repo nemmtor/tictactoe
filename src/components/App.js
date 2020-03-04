@@ -14,7 +14,10 @@ function App() {
                 <Theme>
                     {gameStarted && <Game />}
                     {!gameStarted && (
-                        <Landing setGameStarted={setGameStarted} />
+                        <Landing
+                            setGameStarted={setGameStarted}
+                            gameStarted={gameStarted}
+                        />
                     )}
                     <Footer />
                 </Theme>

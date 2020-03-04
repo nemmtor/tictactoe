@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeContext } from 'styled-components';
 import ButtonLanding from './ButtonLanding';
@@ -30,16 +30,19 @@ const LandingStyled = styled.main`
 
 const Landing = ({ setGameStarted }) => {
     const { colors, queries } = useContext(ThemeContext);
+    const [show, setShow] = useState(true);
     const handleClick = () => {
         setGameStarted(true);
     };
     return (
         <LandingStyled queries={queries}>
-            <HeaderLanding colors={colors} />
+            <HeaderLanding colors={colors} show={show} />
             <ButtonLanding
                 colors={colors}
                 queries={queries}
                 handleClick={handleClick}
+                show={show}
+                setShow={setShow}
             />
         </LandingStyled>
     );

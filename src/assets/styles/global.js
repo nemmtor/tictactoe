@@ -1,6 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 import { tictactoe } from 'images';
-import { fadeInLow } from 'animations';
 
 export default createGlobalStyle`
     @font-face {
@@ -52,7 +51,6 @@ export default createGlobalStyle`
             background-size: cover;
             background-position: center center;
             opacity: .6;
-            /* animation: ${fadeInLow} .5s 1s forwards; */
             
             @media(min-width: 768px){
                 top: -5rem;
@@ -63,5 +61,11 @@ export default createGlobalStyle`
 
         }
     }
+
+    
+
+    
+
+    
     
 `;

@@ -1,23 +1,22 @@
 import React, { useContext } from 'react';
 import styled, { ThemeContext } from 'styled-components';
-import { Transition, CSSTransition } from 'react-transition-group';
 
 const FooterStyled = styled.footer`
     background: ${({ colors }) => colors.main};
     color: ${({ colors }) => colors.accent1};
     width: 100%;
     padding: 15px;
+    font-size: 1rem;
     position: absolute;
     bottom: 0;
     letter-spacing: 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-    &.roll-appear {
-        opacity: 0;
-    }
-
-    &.roll-appear-done {
-        opacity: 1;
-        transition: opacity 0.5s ease-in-out;
+    @media ${({ queries }) => queries.mobileM} {
+        font-size: 1.2rem;
     }
 
     a {
@@ -51,15 +50,13 @@ const FooterStyled = styled.footer`
 `;
 
 export default function Footer() {
-    const { colors } = useContext(ThemeContext);
+    const { colors, queries } = useContext(ThemeContext);
     return (
-        <CSSTransition in classNames="roll" appear>
-            <FooterStyled colors={colors}>
-                &copy; Designed and created by{' '}
-                <a href="https://github.com/nemmtor" target="blank">
-                    Kacper Witas
-                </a>
-            </FooterStyled>
-        </CSSTransition>
+        <FooterStyled colors={colors} queries={queries}>
+            <span>&copy; Designed and created by </span>
+            <a href="https://github.com/nemmtor" target="blank">
+                Kacper Witas
+            </a>
+        </FooterStyled>
     );
 }

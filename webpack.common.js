@@ -12,10 +12,6 @@ module.exports = {
             images: path.resolve(__dirname, 'src/assets/images'),
             styles: path.resolve(__dirname, 'src/assets/styles'),
             fonts: path.resolve(__dirname, 'src/assets/fonts'),
-            animations: path.resolve(
-                __dirname,
-                'src/assets/styles/animations.js',
-            ),
         },
         extensions: ['.js', '.jsx'],
     },

@@ -1,35 +1,71 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { bounce, fadeIn } from 'animations';
+import { CSSTransition } from 'react-transition-group';
 
 const ButtonStyled = styled.button`
     cursor: pointer;
-    padding: 0.2em 0.5em;
+    padding: 0.3em 0.6em;
     border: 1px solid #eee;
     border-radius: 10px;
+    position: relative;
     background: ${({ colors }) => colors.main};
     color: ${({ colors }) => colors.accent2};
     margin-top: 0.5em;
-    font-size: 2em;
+    font-size: 2.2em;
     text-transform: uppercase;
-    opacity: 0;
-    transform: translateY(5px);
-    transition: filter 0.2s ease-out;
-    animation: ${bounce} 1s 1s linear infinite alternate,
-        ${fadeIn} 0.5s 0.5s ease-in forwards;
-    will-change: transform, opacity, filter;
+    filter: grayscale(1);
+    transition: filter 0.3s ease-out, opacity 0.3s ease-out;
+    will-change: opacity, filter;
 
     &:hover {
-        filter: brightness(1.3);
+        filter: grayscale(0);
+        opacity: 0.5;
+    }
+
+    &.effect-appear {
+        transform: translateX(300%);
+    }
+
+    &.effect-appear-done {
+        transform: translateX(0);
+        transition: transform 0.3s 0.5s ease-in-out;
+    }
+
+    &.effect-enter {
+        transform: translateX(300%);
+    }
+
+    &.effect-enter-done {
+        transform: translateX(0);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    &.effect-exit {
+        transform: translateX(0);
+    }
+
+    &.effect-exit-active {
+        transform: translateX(300%);
+        transition: transform 0.3s ease-in-out;
     }
 `;
 
-const ButtonLanding = ({ colors, queries, handleClick }) => {
+const ButtonLanding = ({ colors, queries, handleClick, show, setShow }) => {
     return (
-        <ButtonStyled colors={colors} queries={queries} onClick={handleClick}>
-            Start game
-        </ButtonStyled>
+        <CSSTransition
+            in={show}
+            timeout={1000}
+            classNames="effect"
+            onClick={() => setShow(false)}
+            onExited={() => handleClick()}
+            unmountOnExit
+            appear
+        >
+            <ButtonStyled colors={colors} queries={queries}>
+                Start game
+            </ButtonStyled>
+        </CSSTransition>
     );
 };
 
