@@ -1,38 +1,49 @@
-import React, { useContext } from 'react';
-import { ThemeContext } from 'styled-components';
+import React from 'react';
+
+import PropTypes from 'prop-types';
 import PlayerInput from './PlayerInput';
 import Form from './Form';
 import Submit from './Submit';
 
-export default function Register({
+const Register = ({
     handleSubmit,
     handleChange,
     playersNames,
-    show,
-    setShow,
-}) {
-    const { colors, queries } = useContext(ThemeContext);
+    inputErrors,
+    setInputErrors,
+}) => {
     return (
         <Form
             onSubmit={handleSubmit}
-            colors={colors}
-            queries={queries}
-            show={show}
-            setShow={setShow}
+            playersNames={playersNames}
+            setInputErrors={setInputErrors}
+            inputErrors={inputErrors}
         >
             <PlayerInput
                 name="Player 1"
                 dataIndex={0}
-                value={playersNames[0]}
                 onChange={handleChange}
+                value={playersNames[0]}
+                error={inputErrors[0]}
             />
             <PlayerInput
                 name="Player 2"
                 dataIndex={1}
-                value={playersNames[1]}
                 onChange={handleChange}
+                value={playersNames[1]}
+                error={inputErrors[1]}
             />
             <Submit />
         </Form>
     );
-}
+};
+
+Register.propTypes = {
+    handleSubmit: PropTypes.func.isRequired,
+    handleChange: PropTypes.func.isRequired,
+    setInputErrors: PropTypes.func.isRequired,
+    playersNames: PropTypes.arrayOf(PropTypes.string).isRequired,
+    inputErrors: PropTypes.arrayOf(PropTypes.bool).isRequired,
+};
+
+export default Register;

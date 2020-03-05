@@ -15,6 +15,7 @@ export class PlayersProvider extends Component {
         };
 
         this.changeCurrentPlayer = this.changeCurrentPlayer.bind(this);
+        this.getCurrentPlayer = this.getCurrentPlayer.bind(this);
         this.setPlayers = this.setPlayers.bind(this);
     }
 
@@ -27,6 +28,12 @@ export class PlayersProvider extends Component {
         });
     }
 
+    getCurrentPlayer() {
+        const { currentPlayerId } = this.state;
+        const { players } = this.state;
+        return players[parseInt(currentPlayerId, 10)];
+    }
+
     changeCurrentPlayer() {
         this.setState(prevState => ({
             currentPlayerId: prevState.currentPlayerId ? 0 : 1,
@@ -35,9 +42,9 @@ export class PlayersProvider extends Component {
 
     render() {
         const { changeCurrentPlayer, setPlayers } = this;
-        const { players, currentPlayerId } = this.state;
-        const currentPlayer = players[parseInt(currentPlayerId, 10)];
+        const { players } = this.state;
         const { children } = this.props;
+        const currentPlayer = this.getCurrentPlayer();
 
         return (
             <PlayersContext.Provider

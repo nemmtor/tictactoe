@@ -29,18 +29,14 @@ const LandingStyled = styled.section`
 `;
 
 const Landing = ({ setGameStarted }) => {
-    const { colors, queries } = useContext(ThemeContext);
+    const { queries } = useContext(ThemeContext);
+    // Pass down show state to animate unmounting both button and header after click
     const [show, setShow] = useState(true);
-    const handleClick = () => {
-        setGameStarted(true);
-    };
     return (
         <LandingStyled queries={queries}>
-            <HeaderLanding colors={colors} show={show} />
+            <HeaderLanding show={show} />
             <ButtonLanding
-                colors={colors}
-                queries={queries}
-                handleClick={handleClick}
+                setGameStarted={setGameStarted}
                 show={show}
                 setShow={setShow}
             />

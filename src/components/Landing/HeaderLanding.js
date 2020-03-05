@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { ThemeContext } from 'styled-components';
 import { CSSTransition } from 'react-transition-group';
 
 const HeaderStyled = styled.h1`
@@ -29,14 +29,6 @@ const HeaderStyled = styled.h1`
         opacity: 1;
         transition: opacity 0.3s 0.3s ease-in-out;
     }
-
-    &.effect-enter {
-        opacity: 0;
-    }
-
-    &.effect-enter-active {
-        opacity: 1;
-        transition: opacity 0.3s ease-in-out;
     }
     &.effect-exit {
         opacity: 1;
@@ -44,15 +36,16 @@ const HeaderStyled = styled.h1`
 
     &.effect-exit-active {
         opacity: 0;
-        transition: opacity 0.3s 0.5s ease-in-out;
+        transition: opacity 0.3s ease-in-out;
     }
 `;
 
-const HeaderLanding = ({ colors, show }) => {
+const HeaderLanding = ({ show }) => {
+    const { colors } = useContext(ThemeContext);
     return (
         <CSSTransition
             in={show}
-            timeout={1000}
+            timeout={300}
             classNames="effect"
             unmountOnExit
             appear
@@ -66,7 +59,7 @@ const HeaderLanding = ({ colors, show }) => {
 };
 
 HeaderLanding.propTypes = {
-    colors: PropTypes.shape({}).isRequired,
+    show: PropTypes.bool.isRequired,
 };
 
 export default HeaderLanding;

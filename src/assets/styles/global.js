@@ -35,7 +35,7 @@ export default createGlobalStyle`
         flex-direction: column;
         align-items: center;
         justify-content: center; */
-        overflow: hidden;
+        overflow-x: hidden;
         display: grid;
         grid-template-rows: 1fr auto;
 
@@ -64,10 +64,5 @@ export default createGlobalStyle`
         }
     }
 
-    
-
-    
-
-    
     
 `;

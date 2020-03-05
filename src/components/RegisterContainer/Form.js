@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useState, useContext } from 'react';
+import styled, { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
 
@@ -11,8 +11,8 @@ const FormStyled = styled.form`
     justify-content: space-around;
     border: none;
     margin: 0;
-    padding: 10px 25px;
-    background: ${({ colors }) => colors.main};
+    padding: 25px 25px 0px 25px;
+    background: ${({ colors }) => colors.contrast};
     border-radius: 15% 2% 15% 2%;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
     font-size: 1.5rem;
@@ -45,11 +45,25 @@ const FormStyled = styled.form`
     }
 `;
 
-const Form = ({ children, onSubmit, colors, queries }) => {
+const Form = ({ children, onSubmit, playersNames, setInputErrors }) => {
+    const { colors } = useContext(ThemeContext);
     const [show, setShow] = useState(true);
 
     const handleSubmit = e => {
         e.preventDefault();
+        let isError = false;
+        const errors2 = playersNames.map(name => {
+            if (!name) {
+                isError = true;
+                return true;
+            }
+            return false;
+        });
+
+        if (isError) {
+            setInputErrors(errors2);
+            return;
+        }
         setShow(false);
     };
     return (
@@ -61,7 +75,13 @@ const Form = ({ children, onSubmit, colors, queries }) => {
             unmountOnExit
             appear
         >
-            <FormStyled onSubmit={handleSubmit} colors={colors} novalidate>
+            <FormStyled
+                onSubmit={handleSubmit}
+                colors={colors}
+                autocomplete="off"
+                aria-label="Enter players details"
+                novalidate
+            >
                 {children}
             </FormStyled>
         </CSSTransition>
@@ -71,6 +91,9 @@ const Form = ({ children, onSubmit, colors, queries }) => {
 Form.propTypes = {
     children: PropTypes.node.isRequired,
     onSubmit: PropTypes.func.isRequired,
+    setInputErrors: PropTypes.func.isRequired,
+    playersNames: PropTypes.arrayOf(PropTypes.string).isRequired,
+    inputErrors: PropTypes.arrayOf(PropTypes.bool).isRequired,
 };
 
 export default Form;

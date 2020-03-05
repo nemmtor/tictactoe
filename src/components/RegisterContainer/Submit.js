@@ -1,14 +1,24 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useContext } from 'react';
+import styled, { ThemeContext } from 'styled-components';
 
 const SubmitStyled = styled.input`
+    letter-spacing: 2px;
     width: 15rem;
-    background: transparent;
+    padding: 0.5em;
+    background: ${({ colors }) => colors.accent1};
     color: white;
     cursor: pointer;
     text-transform: uppercase;
+    transition: filter 0.3s ease-out, opacity 0.3s ease-out;
+    will-change: filter, opacity;
+
+    &:hover {
+        filter: hue-rotate(40deg);
+        opacity: 0.8;
+    }
 `;
 
 export default function Submit() {
-    return <SubmitStyled type="submit" value="Start!" />;
+    const { colors } = useContext(ThemeContext);
+    return <SubmitStyled type="submit" value="Start!" colors={colors} />;
 }

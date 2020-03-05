@@ -3,11 +3,11 @@ import styled, { ThemeContext } from 'styled-components';
 import { BoardContainer, RegisterContainer } from 'components';
 import { PlayersProvider } from 'context';
 
-const GameContainerStyled = styled.main`
+const GameContainerStyled = styled.section`
     color: ${({ colors }) => colors.contrast};
     font-size: 3rem;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,12 +20,12 @@ const Game = () => {
     return (
         <GameContainerStyled colors={colors}>
             <PlayersProvider>
-                {playersRegistered && <BoardContainer />}
                 {!playersRegistered && (
                     <RegisterContainer
                         setPlayersRegistered={setPlayersRegistered}
                     />
                 )}
+                {playersRegistered && <BoardContainer />}
             </PlayersProvider>
         </GameContainerStyled>
     );

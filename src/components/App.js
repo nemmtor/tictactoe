@@ -13,7 +13,7 @@ const MainStyled = styled.main`
 `;
 
 function App() {
-    const [gameStarted, setGameStarted] = useState(false);
+    const [gameStarted, setGameStarted] = useState(true);
     return (
         <>
             <Normalize />
@@ -21,13 +21,13 @@ function App() {
             <ErrorBoundary>
                 <Theme>
                     <MainStyled>
-                        {gameStarted && <Game />}
                         {!gameStarted && (
                             <Landing
                                 setGameStarted={setGameStarted}
                                 gameStarted={gameStarted}
                             />
                         )}
+                        {gameStarted && <Game />}
                     </MainStyled>
                     <Footer />
                 </Theme>
