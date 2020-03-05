@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { PlayersContext } from 'context';
 import { getNextPlayer } from 'utils';
+import { CSSTransition } from 'react-transition-group';
 
 const StyledSquare = styled.div`
     border: 1px solid white;
@@ -10,6 +11,34 @@ const StyledSquare = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    &.effect-appear {
+        transform: translateX(300%);
+        opacity: 0;
+    }
+
+    &.effect-appear-done {
+        transform: translateX(0);
+        opacity: 1;
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+
+    &.effect-enter {
+        transform: translateX(300%);
+    }
+
+    &.effect-enter-done {
+        transform: translateX(0);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    &.effect-exit {
+        transform: translateX(0);
+    }
+
+    &.effect-exit-active {
+        transform: translateX(300%);
+        transition: transform 0.3s ease-in-out;
+    }
 `;
 
 const Square = ({ squareValue, changeBoard, index }) => {
@@ -25,7 +54,17 @@ const Square = ({ squareValue, changeBoard, index }) => {
         changeCurrentPlayer(players[nextPlayer.id]);
         changeBoard(index, newValue);
     };
-    return <StyledSquare onClick={handleClick}>{squareValue}</StyledSquare>;
+    return (
+        <CSSTransition
+            in
+            timeout={index * 100}
+            classNames="effect"
+            unmountOnExit
+            appear
+        >
+            <StyledSquare onClick={handleClick}>{squareValue}</StyledSquare>
+        </CSSTransition>
+    );
 };
 
 Square.propTypes = {

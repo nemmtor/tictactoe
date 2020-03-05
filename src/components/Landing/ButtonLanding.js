@@ -29,7 +29,7 @@ const ButtonStyled = styled.button`
 
     &.effect-appear-done {
         transform: translateX(0);
-        transition: transform 0.3s 0.5s ease-in-out;
+        transition: transform 0.3s ease-in-out;
     }
 
     &.effect-enter {
@@ -55,7 +55,11 @@ const ButtonLanding = ({ colors, queries, handleClick, show, setShow }) => {
     return (
         <CSSTransition
             in={show}
-            timeout={1000}
+            timeout={{
+                appear: 300,
+                enter: 300,
+                exit: 1000,
+            }}
             classNames="effect"
             onClick={() => setShow(false)}
             onExited={() => handleClick()}

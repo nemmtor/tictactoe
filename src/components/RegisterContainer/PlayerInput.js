@@ -14,7 +14,7 @@ const InputStyled = styled.input`
 const PlayerInput = ({ name, onChange, value, dataIndex }) => {
     return (
         <InputStyled
-            placeholder="Enter player name..."
+            placeholder={`Player ${dataIndex + 1} name...`}
             value={value}
             name={name}
             onChange={onChange}

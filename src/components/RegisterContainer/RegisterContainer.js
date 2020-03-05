@@ -6,8 +6,7 @@ export default function RegisterContainer({ setPlayersRegistered }) {
     const { setPlayers } = useContext(PlayersContext);
     const [playersNames, setPlayersNames] = useState(['', '']);
 
-    const handleSubmit = e => {
-        e.preventDefault();
+    const handleSubmit = () => {
         // VALIDATION HERE
         setPlayers(playersNames[0], playersNames[1]);
         setPlayersRegistered(true);
