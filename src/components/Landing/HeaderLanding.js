@@ -27,7 +27,7 @@ const HeaderStyled = styled.h1`
 
     &.effect-appear-active {
         opacity: 1;
-        transition: opacity 0.3s ease-in-out;
+        transition: opacity 0.3s 0.3s ease-in-out;
     }
 
     &.effect-enter {

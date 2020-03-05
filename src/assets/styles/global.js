@@ -28,14 +28,16 @@ export default createGlobalStyle`
     }
 
     #root {
-        height: 100vh;
-        height: calc(var(--vh, 1vh) * 100);
+        min-height: 100vh;
+        min-height: calc(var(--vh, 1vh) * 100);
         background: linear-gradient(45deg, rgba(238, 224, 203, 1), rgba(199, 152, 82, 1));
-        display: flex;
+        /* display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: center; */
         overflow: hidden;
+        display: grid;
+        grid-template-rows: 1fr auto;
 
         &::after {
             content: '';

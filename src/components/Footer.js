@@ -2,13 +2,15 @@ import React, { useContext } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 
 const FooterStyled = styled.footer`
+    grid-row-start: 2;
+    grid-row-end: 3;
     background: ${({ colors }) => colors.main};
     color: ${({ colors }) => colors.accent1};
     width: 100%;
     padding: 15px;
     font-size: 1rem;
-    position: absolute;
-    bottom: 0;
+    /* position: absolute;
+    bottom: 0; */
     letter-spacing: 1px;
     display: flex;
     flex-direction: column;
