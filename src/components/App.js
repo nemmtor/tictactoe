@@ -13,7 +13,7 @@ const MainStyled = styled.main`
 `;
 
 function App() {
-    const [gameStarted, setGameStarted] = useState(true);
+    const [gameStarted, setGameStarted] = useState(false);
     return (
         <>
             <Normalize />
