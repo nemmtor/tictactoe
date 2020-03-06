@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { gameIsFinished, checkWinner } from 'utils';
 import { PlayersContext } from 'context';
-import { CurrentPlayerInfo } from 'components';
+import { CurrentPlayerInfo, WinnerScreen } from 'components';
 import Board from './Board';
 import Square from './Square';
 
 const BoardContainer = () => {
     const [board, setBoard] = useState(new Array(9).fill(''));
     const [gameFinished, setGameFinished] = useState(false);
-    const [winner, setWinner] = useState(null);
+    const [winner, setWinner] = useState('');
     const { players } = useContext(PlayersContext);
 
     const changeBoard = (i, newValue) => {
@@ -53,7 +53,14 @@ const BoardContainer = () => {
                     </Board>
                 </>
             )}
-            {gameFinished && <h1>Winner: {winner || 'no winner.'}</h1>}
+            {gameFinished && (
+                <WinnerScreen
+                    setBoard={setBoard}
+                    setGameFinished={setGameFinished}
+                    winner={winner}
+                    setWinner={setWinner}
+                />
+            )}
         </>
     );
 };

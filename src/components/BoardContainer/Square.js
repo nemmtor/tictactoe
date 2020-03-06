@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
+import { isMobile, getNextPlayer } from 'utils';
 import { PlayersContext } from 'context';
-import { getNextPlayer } from 'utils';
+
 import { CSSTransition } from 'react-transition-group';
 
 const StyledSquare = styled.div`
@@ -14,6 +15,16 @@ const StyledSquare = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
+
+    &:hover {
+            &::after {
+            content: '${({ player }) => player.mark}';
+                opacity: 0.2;
+                position: absolute;
+            }
+        }
+
     &.effect-appear {
         transform: translateX(300%);
         opacity: 0;
@@ -32,17 +43,7 @@ const StyledSquare = styled.div`
     &.effect-enter-done {
         transform: translateX(0);
         transition: transform 0.1s ease-in-out;
-        &:hover {
-            &::after {
-                content: '';
-                opacity: 0.2;
-                background: black;
-                position: absolute;
-                width: 50%;
-                height: 50%;
-                border-radius: 50%;
-            }
-        }
+        
     }
 
     &.effect-exit {
@@ -69,6 +70,10 @@ const Square = ({ squareValue, changeBoard, index }) => {
         changeCurrentPlayer(players[nextPlayer.id]);
         changeBoard(index, newValue);
     };
+
+    // This fixes hover effect for mobiles
+    const player = isMobile() ? { mark: '' } : currentPlayer;
+
     return (
         <CSSTransition
             in
@@ -77,7 +82,7 @@ const Square = ({ squareValue, changeBoard, index }) => {
             unmountOnExit
             appear
         >
-            <StyledSquare onClick={handleClick} colors={colors}>
+            <StyledSquare onClick={handleClick} colors={colors} player={player}>
                 {squareValue}
             </StyledSquare>
         </CSSTransition>

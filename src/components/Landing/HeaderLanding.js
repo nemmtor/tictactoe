@@ -27,7 +27,7 @@ const HeaderStyled = styled.h1`
 
     &.effect-appear-active {
         opacity: 1;
-        transition: opacity 0.3s 0.3s ease-in-out;
+        transition: opacity .5s ease-in-out;
     }
     }
     &.effect-exit {
@@ -37,15 +37,14 @@ const HeaderStyled = styled.h1`
     &.effect-exit-active {
         opacity: 0;
         transition: opacity 0.3s ease-in-out;
-    }
-`;
+    }`;
 
 const HeaderLanding = ({ show }) => {
     const { colors } = useContext(ThemeContext);
     return (
         <CSSTransition
             in={show}
-            timeout={300}
+            timeout={500}
             classNames="effect"
             unmountOnExit
             appear

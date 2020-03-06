@@ -4,3 +4,4 @@ export { default as CurrentPlayerInfo } from './CurrentPlayerInfo';
 export { default as RegisterContainer } from './RegisterContainer';
 export { default as BoardContainer } from './BoardContainer';
 export { default as Landing } from './Landing';
+export { default as WinnerScreen } from './WinnerScreen';
