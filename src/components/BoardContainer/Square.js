@@ -1,12 +1,15 @@
 import React, { useContext } from 'react';
-import styled from 'styled-components';
+import styled, { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
 import { PlayersContext } from 'context';
 import { getNextPlayer } from 'utils';
 import { CSSTransition } from 'react-transition-group';
 
 const StyledSquare = styled.div`
-    border: 1px solid white;
+    color: ${({ colors }) => colors.main};
+    border: 1px solid ${({ colors }) => colors.main};
+    width: 100%;
+    height: 100%;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -28,7 +31,18 @@ const StyledSquare = styled.div`
 
     &.effect-enter-done {
         transform: translateX(0);
-        transition: transform 0.3s ease-in-out;
+        transition: transform 0.1s ease-in-out;
+        &:hover {
+            &::after {
+                content: '';
+                opacity: 0.2;
+                background: black;
+                position: absolute;
+                width: 50%;
+                height: 50%;
+                border-radius: 50%;
+            }
+        }
     }
 
     &.effect-exit {
@@ -42,6 +56,7 @@ const StyledSquare = styled.div`
 `;
 
 const Square = ({ squareValue, changeBoard, index }) => {
+    const { colors } = useContext(ThemeContext);
     const { currentPlayer, changeCurrentPlayer, players } = useContext(
         PlayersContext,
     );
@@ -62,7 +77,9 @@ const Square = ({ squareValue, changeBoard, index }) => {
             unmountOnExit
             appear
         >
-            <StyledSquare onClick={handleClick}>{squareValue}</StyledSquare>
+            <StyledSquare onClick={handleClick} colors={colors}>
+                {squareValue}
+            </StyledSquare>
         </CSSTransition>
     );
 };

@@ -6,7 +6,7 @@ import Register from './Register';
 const RegisterContainer = ({ setPlayersRegistered }) => {
     const { setPlayers } = useContext(PlayersContext);
     const [playersNames, setPlayersNames] = useState(['', '']);
-    const [inputErrors, setInputErrors] = useState([false, false]);
+    const [inputErrors, setInputErrors] = useState(['', '']);
 
     const handleSubmit = () => {
         setPlayers(playersNames[0], playersNames[1]);

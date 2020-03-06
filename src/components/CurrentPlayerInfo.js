@@ -4,14 +4,14 @@ import { PlayersContext } from 'context';
 
 const CurrentPlayerStyled = styled.h1`
     font-size: 3rem;
-    color: white;
+    color: ${({ colors }) => colors.main};
 `;
 
 const CurrentPlayerInfo = () => {
     const { currentPlayer } = useContext(PlayersContext);
-    const { fontSizes } = useContext(ThemeContext);
+    const { colors } = useContext(ThemeContext);
     return (
-        <CurrentPlayerStyled fontSizes={fontSizes}>
+        <CurrentPlayerStyled colors={colors}>
             {currentPlayer.name} turn({currentPlayer.mark})
         </CurrentPlayerStyled>
     );

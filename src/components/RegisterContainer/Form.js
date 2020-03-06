@@ -27,14 +27,6 @@ const FormStyled = styled.form`
         transition: opacity 0.3s ease-in-out;
     }
 
-    &.effect-enter {
-        opacity: 0;
-    }
-
-    &.effect-enter-active {
-        opacity: 1;
-        transition: opacity 0.3s ease-in-out;
-    }
     &.effect-exit {
         opacity: 1;
     }
@@ -52,12 +44,21 @@ const Form = ({ children, onSubmit, playersNames, setInputErrors }) => {
     const handleSubmit = e => {
         e.preventDefault();
         let isError = false;
-        const errors2 = playersNames.map(name => {
+        const errors2 = playersNames.map((name, i, arr) => {
             if (!name) {
                 isError = true;
-                return true;
+                return 'Player name cannot be empty!';
             }
-            return false;
+            const count = arr.filter(item => item === name);
+            if (count.length > 1) {
+                isError = true;
+                return 'Please use different names';
+            }
+            if (name.length < 3) {
+                isError = true;
+                return 'Player name has to be atleast 3 characters long!';
+            }
+            return '';
         });
 
         if (isError) {
@@ -93,7 +94,6 @@ Form.propTypes = {
     onSubmit: PropTypes.func.isRequired,
     setInputErrors: PropTypes.func.isRequired,
     playersNames: PropTypes.arrayOf(PropTypes.string).isRequired,
-    inputErrors: PropTypes.arrayOf(PropTypes.bool).isRequired,
 };
 
 export default Form;

@@ -43,7 +43,7 @@ Register.propTypes = {
     handleChange: PropTypes.func.isRequired,
     setInputErrors: PropTypes.func.isRequired,
     playersNames: PropTypes.arrayOf(PropTypes.string).isRequired,
-    inputErrors: PropTypes.arrayOf(PropTypes.bool).isRequired,
+    inputErrors: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default Register;

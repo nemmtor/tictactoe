@@ -9,8 +9,6 @@ const FooterStyled = styled.footer`
     width: 100%;
     padding: 15px;
     font-size: 1rem;
-    /* position: absolute;
-    bottom: 0; */
     letter-spacing: 1px;
     display: flex;
     flex-direction: column;

@@ -13,13 +13,10 @@ const ButtonStyled = styled.button`
     cursor: pointer;
     background: ${({ colors }) => colors.main};
     color: ${({ colors }) => colors.accent2};
-    filter: grayscale(1);
-    transition: filter 0.3s ease-out, opacity 0.3s ease-out;
-    will-change: opacity, filter;
+    transition: transform 0.3s ease-in-out, opacity 0.2s ease-out;
 
     &:hover {
-        filter: grayscale(0);
-        opacity: 0.5;
+        opacity: 0.8;
     }
 
     &.effect-appear {
@@ -28,7 +25,6 @@ const ButtonStyled = styled.button`
 
     &.effect-appear-done {
         transform: translateX(0);
-        transition: transform 0.3s ease-in-out;
     }
 
     &.effect-exit {
@@ -37,7 +33,6 @@ const ButtonStyled = styled.button`
 
     &.effect-exit-active {
         transform: translateX(300%);
-        transition: transform 0.3s ease-in-out;
     }
 `;
 

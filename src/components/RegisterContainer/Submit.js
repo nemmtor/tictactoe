@@ -5,7 +5,7 @@ const SubmitStyled = styled.input`
     letter-spacing: 2px;
     width: 15rem;
     padding: 0.5em;
-    background: ${({ colors }) => colors.accent1};
+    background: ${({ colors }) => colors.accent3};
     color: white;
     cursor: pointer;
     text-transform: uppercase;
@@ -13,7 +13,7 @@ const SubmitStyled = styled.input`
     will-change: filter, opacity;
 
     &:hover {
-        filter: hue-rotate(40deg);
+        filter: hue-rotate(40deg) brightness(0.8);
         opacity: 0.8;
     }
 `;
