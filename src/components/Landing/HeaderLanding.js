@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { ThemeContext } from 'styled-components';
+import styled from 'styled-components';
 import { CSSTransition } from 'react-transition-group';
 
 const HeaderStyled = styled.h1`
@@ -9,7 +9,7 @@ const HeaderStyled = styled.h1`
     letter-spacing: 0.2em;
     text-align: center;
     text-transform: uppercase;
-    color: ${({ colors }) => colors.main};
+    color: var(--text-color);
     position: relative;
 
     span {
@@ -40,7 +40,6 @@ const HeaderStyled = styled.h1`
     }`;
 
 const HeaderLanding = ({ show }) => {
-    const { colors } = useContext(ThemeContext);
     return (
         <CSSTransition
             in={show}
@@ -49,7 +48,7 @@ const HeaderLanding = ({ show }) => {
             unmountOnExit
             appear
         >
-            <HeaderStyled colors={colors}>
+            <HeaderStyled>
                 Tic Tac Toe
                 <span className="enjoy">Enjoy your time.</span>
             </HeaderStyled>

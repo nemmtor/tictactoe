@@ -1,18 +1,17 @@
-import React, { useState, useContext } from 'react';
-import styled, { ThemeContext } from 'styled-components';
+import React, { useState } from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
 
 const FormStyled = styled.form`
     display: flex;
-    background: red;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
     border: none;
     margin: 0;
     padding: 25px 25px 0px 25px;
-    background: ${({ colors }) => colors.contrast};
+    background: var(--accent2-color);
     border-radius: 15% 2% 15% 2%;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
     font-size: 1.5rem;
@@ -38,7 +37,6 @@ const FormStyled = styled.form`
 `;
 
 const Form = ({ children, onSubmit, playersNames, setInputErrors }) => {
-    const { colors } = useContext(ThemeContext);
     const [show, setShow] = useState(true);
 
     const handleSubmit = e => {
@@ -78,7 +76,6 @@ const Form = ({ children, onSubmit, playersNames, setInputErrors }) => {
         >
             <FormStyled
                 onSubmit={handleSubmit}
-                colors={colors}
                 autocomplete="off"
                 aria-label="Enter players details"
                 novalidate

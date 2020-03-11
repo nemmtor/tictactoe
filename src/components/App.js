@@ -6,6 +6,12 @@ import styled from 'styled-components';
 import Game from './Game';
 
 const MainStyled = styled.main`
+    --primary-color: #495867;
+    --contrast-color: #ce796b;
+    --accent-color: #c18c5d;
+    --accent2-color: #e7ad99;
+    --text-color: #333;
+    --text-light-color: #ccc;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -2,6 +2,8 @@ import { createGlobalStyle } from 'styled-components';
 import { tictactoe } from 'images';
 
 export default createGlobalStyle`
+    
+
     @font-face {
         font-family: 'Audiowide';
         src: url("./fonts/Audiowide-Regular.ttf") format("truetype");
@@ -30,11 +32,7 @@ export default createGlobalStyle`
     #root {
         min-height: 100vh;
         min-height: calc(var(--vh, 1vh) * 100);
-        background: linear-gradient(45deg, rgba(238, 224, 203, 1), rgba(199, 152, 82, 1));
-        /* display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center; */
+        background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
         overflow-x: hidden;
         display: grid;
         grid-template-rows: 1fr auto;

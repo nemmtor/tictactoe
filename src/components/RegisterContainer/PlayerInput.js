@@ -1,5 +1,5 @@
-import React, { useContext, useEffect } from 'react';
-import styled, { ThemeContext } from 'styled-components';
+import React, { useContext } from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
 
@@ -28,17 +28,19 @@ const InputStyled = styled.input`
     width: 15rem;
     background: none;
     border: none;
-    border-bottom: 1px solid ${({ colors }) => colors.main};
+    border-bottom: 1px solid var(--text-color);
     padding: 2px;
-    color: #333;
+    color: var(--text-color);
+
+    &::placeholder {
+        color: var(--text-color);
+    }
 `;
 
 const PlayerInput = ({ name, onChange, value, dataIndex, error }) => {
-    const { colors } = useContext(ThemeContext);
     return (
         <LabelStyled htmlFor={name}>
             <InputStyled
-                colors={colors}
                 placeholder={`Player ${dataIndex + 1} name...`}
                 value={value}
                 name={name}
