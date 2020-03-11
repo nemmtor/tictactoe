@@ -8,6 +8,20 @@ const shine = keyframes`
 100% {transform: translateX(-350px) skew(-45deg);}
 `;
 
+const leaveMobile = keyframes`{
+    0% {transform: translateY(0px) translateX(0px)}
+    50% {
+        transform: translateY(6px) translateX(-6px);
+        box-shadow: none;
+        }
+    100% {transform: translateX(300%);}
+}`;
+
+const leave = keyframes`{
+    from {transform: translateX(0px) translateY(6px)}
+    to {transform: translateX(300%) translateY(6px);}
+}`;
+
 const ButtonStyled = styled.button`
     font-size: 2.2em;
     text-transform: uppercase;
@@ -16,11 +30,8 @@ const ButtonStyled = styled.button`
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    /* background: var(--primary-color); */
-    /* box-shadow: 15px 15px 0px var(--primary-color); */
     box-shadow: 0px 6px 0px var(--contrast-color),
         -6px 6px 0px var(--contrast-color);
-    /* border: 3px solid var(--accent-color); */
     color: var(--text-color);
     transition: transform 0.3s ease-in-out, opacity 0.2s ease-out,
         box-shadow 0.2s 0.1s ease-in-out;
@@ -51,11 +62,16 @@ const ButtonStyled = styled.button`
     }
 
     &.effect-exit {
-        transform: translateX(0);
+        transform: translateY(0px) translateX(0px);
+        box-shadow: none;
     }
 
     &.effect-exit-active {
         transform: translateX(300%);
+        animation: ${leave} 0.5s ease-in-out forwards;
+        @media (max-width: 700px) {
+            animation: ${leaveMobile} 0.5s ease-in-out forwards;
+        }
     }
 `;
 
