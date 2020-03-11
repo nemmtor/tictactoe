@@ -18,7 +18,8 @@ const ButtonStyled = styled.button`
     cursor: pointer;
     /* background: var(--primary-color); */
     /* box-shadow: 15px 15px 0px var(--primary-color); */
-    box-shadow: 0px 6px 0px var(--contrast-color);
+    box-shadow: 0px 6px 0px var(--contrast-color),
+        -6px 6px 0px var(--contrast-color);
     /* border: 3px solid var(--accent-color); */
     color: var(--text-color);
     transition: transform 0.3s ease-in-out, opacity 0.2s ease-out,
@@ -44,7 +45,7 @@ const ButtonStyled = styled.button`
     &.effect-appear-done {
         transform: translateX(0);
         &:hover {
-            transform: translateY(6px);
+            transform: translateY(6px) translateX(-6px);
             box-shadow: none;
         }
     }
