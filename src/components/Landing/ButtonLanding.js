@@ -24,12 +24,14 @@ const leave = keyframes`{
 
 const ButtonStyled = styled.button`
     font-size: 2.2em;
+    letter-spacing: 5px;
     text-transform: uppercase;
-    margin-top: 3em;
+    /* margin-top: 3em; */
     padding: 0.3em 0.6em;
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    background: #fff;
     box-shadow: 0px 6px 0px var(--contrast-color),
         -6px 6px 0px var(--contrast-color);
     color: var(--text-color);

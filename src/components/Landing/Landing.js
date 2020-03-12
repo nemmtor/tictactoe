@@ -10,6 +10,8 @@ const LandingStyled = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
+    height: 100%;
 
     @media ${({ queries }) => queries.mobileM} {
         font-size: 1rem;

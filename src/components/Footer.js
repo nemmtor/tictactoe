@@ -11,6 +11,8 @@ const FooterStyled = styled.footer`
     grid-row-start: 2;
     grid-row-end: 3;
     color: var(--text-color);
+    background: rgba(206, 121, 107, 0.6);
+    box-shadow: -2px 0px 5px black;
     width: 100%;
     padding: 15px;
     font-size: 1rem;

@@ -11,11 +11,7 @@ const FormStyled = styled.form`
     border: none;
     margin: 0;
     padding: 25px 25px 0px 25px;
-    background: var(--accent2-color);
-    border-radius: 15% 2% 15% 2%;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
     font-size: 1.5rem;
-    height: 15rem;
 
     &.effect-appear {
         opacity: 0;

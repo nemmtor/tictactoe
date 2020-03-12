@@ -1,7 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { CSSTransition } from 'react-transition-group';
+
+const jump = keyframes`
+0% {transform:  scaleY(1);}
+5% {transform:  scaleY(.3);}
+10% {transform:  scaleY(.3);}
+15% {transform:  scaleY(1) translateY(-200px);}
+20% {transform:  scaleY(.7) translateY(0px);}
+25% {transform:  scaleY(1) translateY(0px);}
+100% {transform: scale(1);}
+`;
 
 const HeaderStyled = styled.h1`
     font-family: 'Audiowide', sans-serif;
@@ -12,7 +22,13 @@ const HeaderStyled = styled.h1`
     color: var(--text-color);
     position: relative;
 
-    span {
+    .jumping {
+        display: inline-block;
+        transform-origin: bottom;
+        animation: ${jump} 6s ease-in-out infinite;
+    }
+
+    .enjoy {
         font-size: 0.3em;
         letter-spacing: 0;
         position: absolute;
@@ -37,8 +53,8 @@ const HeaderStyled = styled.h1`
     &.effect-exit-active {
         opacity: 0;
         transition: opacity 0.3s ease-in-out;
+    
     }`;
-
 const HeaderLanding = ({ show }) => {
     return (
         <CSSTransition
@@ -49,7 +65,7 @@ const HeaderLanding = ({ show }) => {
             appear
         >
             <HeaderStyled>
-                Tic Tac Toe
+                T<span className="jumping">i</span>c Tac Toe
                 <span className="enjoy">Enjoy your time.</span>
             </HeaderStyled>
         </CSSTransition>

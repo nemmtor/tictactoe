@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
@@ -25,15 +25,20 @@ const LabelStyled = styled.label`
 `;
 
 const InputStyled = styled.input`
-    width: 15rem;
     background: none;
     border: none;
     border-bottom: 1px solid var(--text-color);
+    border-radius: 10px;
     padding: 2px;
     color: var(--text-color);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3), -3px -3px 5px rgba(0, 0, 0, 0.3);
+    margin-top: 25px;
+    padding: 15px;
+    width: 100%;
 
     &::placeholder {
         color: var(--text-color);
+        opacity: 0.6;
     }
 `;
 

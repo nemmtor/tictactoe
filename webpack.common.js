@@ -31,7 +31,7 @@ module.exports = {
             // Convert all images to .webp files
             // WARNING: Safari doesnt load .webp images!
             {
-                test: /\.(svg|png|jpe?g|gif)$/i,
+                test: /\.(png|jpe?g|gif)$/i,
                 loaders: [
                     'file-loader?{name: "[name].webp", outputPath: "imgs", esModule: false}',
                     'webp-loader?{quality: 80}',
@@ -39,6 +39,11 @@ module.exports = {
             },
             {
                 test: /\.ico$/i,
+                loader:
+                    'file-loader?{name: "[name].[ext]", outputPath: "imgs", esModule: false}',
+            },
+            {
+                test: /\.svg$/i,
                 loader: 'file-loader?name=[name].[ext]',
             },
             {
