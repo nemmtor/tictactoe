@@ -38,8 +38,7 @@ module.exports = {
             },
             {
                 test: /\.ico$/i,
-                loader:
-                    'file-loader?{name: "[name].[ext]", outputPath: "imgs", esModule: false}',
+                loader: 'file-loader?{name: "[name].[ext]", esModule: false}',
             },
             {
                 test: /\.svg$/i,

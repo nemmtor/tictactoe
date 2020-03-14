@@ -3,5 +3,6 @@ whatchanged
 whatChanged
 node_modules
 build
+dist
 # Local Netlify folder
 .netlify
