@@ -10,7 +10,6 @@ module.exports = {
             utils: path.resolve(__dirname, 'src/utils'),
             context: path.resolve(__dirname, 'src/context'),
             images: path.resolve(__dirname, 'src/assets/images'),
-            styles: path.resolve(__dirname, 'src/assets/styles'),
             fonts: path.resolve(__dirname, 'src/assets/fonts'),
         },
         extensions: ['.js', '.jsx'],

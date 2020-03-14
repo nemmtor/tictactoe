@@ -4,7 +4,6 @@ import { BoardContainer, RegisterContainer } from 'components';
 import { PlayersProvider } from 'context';
 
 const GameContainerStyled = styled.section`
-    color: ${({ colors }) => colors.contrast};
     font-size: 3rem;
     width: 100%;
     height: 100%;
@@ -15,10 +14,9 @@ const GameContainerStyled = styled.section`
 `;
 
 const Game = () => {
-    const { colors } = useContext(ThemeContext);
     const [playersRegistered, setPlayersRegistered] = useState(false);
     return (
-        <GameContainerStyled colors={colors}>
+        <GameContainerStyled>
             <PlayersProvider>
                 {!playersRegistered && (
                     <RegisterContainer

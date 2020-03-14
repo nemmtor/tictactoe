@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import styled, { ThemeContext } from 'styled-components';
+import React from 'react';
+import styled from 'styled-components';
 
 const FooterStyled = styled.footer`
     --primary-color: #495867;
@@ -15,15 +15,15 @@ const FooterStyled = styled.footer`
     box-shadow: -2px 0px 5px black;
     width: 100%;
     padding: 15px;
-    font-size: 1rem;
+    font-size: 1em;
     letter-spacing: 1px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    @media ${({ queries }) => queries.mobileM} {
-        font-size: 1.2rem;
+    @media (min-width: 480px) {
+        font-size: 1.4em;
     }
 
     a {
@@ -55,9 +55,8 @@ const FooterStyled = styled.footer`
 `;
 
 export default function Footer() {
-    const { colors, queries } = useContext(ThemeContext);
     return (
-        <FooterStyled colors={colors} queries={queries}>
+        <FooterStyled>
             <span>&copy; Designed and created by </span>
             <a href="https://github.com/nemmtor" target="blank">
                 Kacper Witas

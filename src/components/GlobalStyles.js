@@ -3,7 +3,6 @@ import { tictactoe } from 'images';
 
 export default createGlobalStyle`
     
-
     @font-face {
         font-family: 'Audiowide';
         src: url("./fonts/Audiowide-Regular.ttf") format("truetype");
@@ -42,8 +41,8 @@ export default createGlobalStyle`
             opacity: .3;
             top: -3rem;
             left: -3rem;
-            width: 10rem;
-            height: 10rem;
+            width: 15rem;
+            height: 15rem;
             transform: rotate(45deg);
             position: absolute;
             background: url(${tictactoe});

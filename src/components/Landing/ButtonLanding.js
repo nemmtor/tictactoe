@@ -26,7 +26,6 @@ const ButtonStyled = styled.button`
     font-size: 2.2em;
     letter-spacing: 5px;
     text-transform: uppercase;
-    /* margin-top: 3em; */
     padding: 0.3em 0.6em;
     border: none;
     border-radius: 10px;

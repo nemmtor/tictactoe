@@ -7,8 +7,8 @@ import { PlayersContext } from 'context';
 import { CSSTransition } from 'react-transition-group';
 
 const StyledSquare = styled.div`
-    color: ${({ colors }) => colors.main};
-    border: 1px solid ${({ colors }) => colors.main};
+    color: black;
+    border: 1px solid black;
     width: 100%;
     height: 100%;
     cursor: pointer;
@@ -57,7 +57,6 @@ const StyledSquare = styled.div`
 `;
 
 const Square = ({ squareValue, changeBoard, index }) => {
-    const { colors } = useContext(ThemeContext);
     const { currentPlayer, changeCurrentPlayer, players } = useContext(
         PlayersContext,
     );
@@ -82,7 +81,7 @@ const Square = ({ squareValue, changeBoard, index }) => {
             unmountOnExit
             appear
         >
-            <StyledSquare onClick={handleClick} colors={colors} player={player}>
+            <StyledSquare onClick={handleClick} player={player}>
                 {squareValue}
             </StyledSquare>
         </CSSTransition>

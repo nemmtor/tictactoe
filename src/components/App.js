@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { ErrorBoundary, Landing, Footer } from 'components';
-import { Global, Theme } from 'styles';
 import { Normalize } from 'styled-normalize';
 import styled from 'styled-components';
+import Global from './GlobalStyles';
 import Game from './Game';
 
 const MainStyled = styled.main`
@@ -25,18 +25,16 @@ function App() {
             <Normalize />
             <Global />
             <ErrorBoundary>
-                <Theme>
-                    <MainStyled>
-                        {!gameStarted && (
-                            <Landing
-                                setGameStarted={setGameStarted}
-                                gameStarted={gameStarted}
-                            />
-                        )}
-                        {gameStarted && <Game />}
-                    </MainStyled>
-                    <Footer />
-                </Theme>
+                <MainStyled>
+                    {!gameStarted && (
+                        <Landing
+                            setGameStarted={setGameStarted}
+                            gameStarted={gameStarted}
+                        />
+                    )}
+                    {gameStarted && <Game />}
+                </MainStyled>
+                <Footer />
             </ErrorBoundary>
         </>
     );

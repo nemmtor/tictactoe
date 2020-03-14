@@ -1,6 +1,6 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import styled, { ThemeContext } from 'styled-components';
+import styled from 'styled-components';
 import ButtonLanding from './ButtonLanding';
 import HeaderLanding from './HeaderLanding';
 
@@ -11,31 +11,16 @@ const LandingStyled = styled.section`
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    height: 100%;
 
-    @media ${({ queries }) => queries.mobileM} {
-        font-size: 1rem;
-    }
-    @media ${({ queries }) => queries.mobileL} {
-        font-size: 1.2rem;
-    }
-    @media ${({ queries }) => queries.tablet} {
-        font-size: 1.5rem;
-    }
-    @media ${({ queries }) => queries.laptop} {
-        font-size: 1.6rem;
-    }
-    @media ${({ queries }) => queries.laptopL} {
-        font-size: 1.9rem;
+    @media (min-width: 480px) {
+        font-size: 1.2em;
     }
 `;
 
 const Landing = ({ setGameStarted }) => {
-    const { queries } = useContext(ThemeContext);
-    // Pass down show state to animate unmounting both button and header after click
     const [show, setShow] = useState(true);
     return (
-        <LandingStyled queries={queries}>
+        <LandingStyled>
             <HeaderLanding show={show} />
             <ButtonLanding
                 setGameStarted={setGameStarted}
