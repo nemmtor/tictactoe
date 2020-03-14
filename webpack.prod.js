@@ -17,7 +17,7 @@ module.exports = smp.wrap(
         devtool: 'source-map',
         output: {
             filename: '[name].[chunkhash].bundle.js',
-            path: path.resolve(__dirname, 'build'),
+            path: path.resolve(__dirname, 'dist'),
         },
         optimization: {
             splitChunks: {
