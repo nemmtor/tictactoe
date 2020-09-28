@@ -1,3 +1,5 @@
-# React new app
+# Tic Tac Toe
 
-Just clone that git repo and run npm install
+Nothing fancy, but it was my first project made in React.
+
+[Live](https://nemmtor-tictactoe.netlify.app)
